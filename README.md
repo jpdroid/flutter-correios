@@ -20,7 +20,7 @@ enviados pelo Correios, também é possível consultar um CEP.
 
 
 
-## How to use
+## Como rastrear um objeto
 
 ```dart
    
@@ -40,4 +40,26 @@ enviados pelo Correios, também é possível consultar um CEP.
       print("   Detalhes:"+historico.detalhes);
       print("<=");
     }    
+```
+
+
+## Como consultar um CEP
+
+```dart
+   
+    // import 'package:flutter_correios/flutter_correios.dart';
+    // import 'package:flutter_correios/model/resultado_cep.dart';
+    
+    
+    final FlutterCorreios fc = FlutterCorreios();
+    ResultadoCEP resultado = await fc.consultarCEP(cep: "72010010");
+    print("bairro: ${resultado.bairro}");
+    print("cidade: ${resultado.cidade}");
+    print("estado: ${resultado.estado}");
+    print("logradouro: ${resultado.logradouro}");
+    print("   Estado Km2: ${resultado.estadoInfo.areaKm2}");
+    print("   Estado IBGE: ${resultado.estadoInfo.codigoIBGE}");
+    print("   Estado Nome: ${resultado.estadoInfo.nome}");
+    print("   Cidade Km2: ${resultado.cidadeInfo.areaKm2}");
+    print("   Cidade IBGE: ${resultado.cidadeInfo.codigoIBGE}");
 ```
