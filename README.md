@@ -10,8 +10,7 @@ enviados pelo Correios, também é possível consultar um CEP.
 
 ## Usage
 
-Para usar o plugin:
-```yaml
+```dart
   dependencies:
      flutter:
         sdk: flutter
@@ -23,10 +22,12 @@ Para usar o plugin:
 
 ## How to use
 
-```yaml
+```dart
    
-    //import 'package:flutter_correios/flutter_correios.dart';
-    //import 'package:flutter_correios/model/objeto_rastreio.dart';
+    // import 'package:flutter_correios/flutter_correios.dart';
+    // import 'package:flutter_correios/model/objeto_rastreio.dart';
+    
+    
     final FlutterCorreios fc = FlutterCorreios();
     ObjetoRastreio objeto = await fc.fazerRastreio(codRastreio: "PT118988786BR");
     print("código do rastreio: ${objeto.codigo}");
