@@ -15,16 +15,18 @@ Para usar o plugin:
   dependencies:
      flutter:
         sdk: flutter
-     flutter_correios: 0.0.5
+     flutter_correios:
+```     
+
 
 
 
 ## How to use
-```dart
-//    import 'package:flutter_correios/flutter_correios.dart';
-//    import 'package:flutter_correios/model/objeto_rastreio.dart';
 
-
+```yaml
+   
+    //import 'package:flutter_correios/flutter_correios.dart';
+    //import 'package:flutter_correios/model/objeto_rastreio.dart';
     final FlutterCorreios fc = FlutterCorreios();
     ObjetoRastreio objeto = await fc.fazerRastreio(codRastreio: "PT118988786BR");
     print("código do rastreio: ${objeto.codigo}");
@@ -36,4 +38,5 @@ Para usar o plugin:
       print("   Situação:"+historico.situacao);
       print("   Detalhes:"+historico.detalhes);
       print("<=");
-    }
+    }    
+```

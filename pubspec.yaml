@@ -1,6 +1,6 @@
 name: flutter_correios
 description: Biblioteca para consultar fazer rastreio, consultar CEP e calcular preço do frete.
-version: 0.0.4
+version: 0.0.8
 author: João Paulo <joaopaulo.jpo@gmail.com>
 homepage: https://github.com/jpdroid/flutter-correios
 
