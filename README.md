@@ -1,14 +1,44 @@
 # flutter_correios
 
-A new Flutter package.
+Fazer o rastreio de objetos enviados pelo CORREIOS.
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Este projeto criado para suprir a necessidade de consultar rastreio de objetos
+enviados pelo Correios, também é possível consultar um CEP.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
+## Usage
+
+Para usar o plugin:
+```yaml
+  dependencies:
+     flutter:
+        sdk: flutter
+     flutter_correios:
+```     
+
+
+
+
+## How to use
+
+```dart
+   
+
+    //import 'package:flutter_correios/flutter_correios.dart';
+    //import 'package:flutter_correios/model/objeto_rastreio.dart';
+    final FlutterCorreios fc = FlutterCorreios();
+    ObjetoRastreio objeto = await fc.fazerRastreio(codRastreio: "PT118988786BR");
+    print("código do rastreio: ${objeto.codigo}");
+    print("Serviço: ${objeto.servico}");
+    for(Historico historico in objeto.historico){
+      print("=>");
+      print("   Data:"+historico.data);
+      print("   Local:"+historico.local);
+      print("   Situação:"+historico.situacao);
+      print("   Detalhes:"+historico.detalhes);
+      print("<=");
+    }
+    
+```
