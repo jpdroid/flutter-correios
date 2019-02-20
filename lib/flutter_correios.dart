@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_correios/model/objeto_rastreio.dart';
 import 'package:flutter_correios/model/resultado_cep.dart';
 import 'package:http/http.dart' as http;
-export 'dart:core';
 
 
 
