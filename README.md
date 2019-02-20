@@ -1,7 +1,6 @@
 # flutter_correios
 
 Fazer o rastreio de objetos enviados pelos CORREIOS e consultar CEP.
-
 Este pacote utiliza a API [POSTMON](https://postmon.com.br/)
 
 

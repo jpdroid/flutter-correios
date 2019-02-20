@@ -5,31 +5,22 @@ class ObjetoRastreio {
   String servico;
   List<Historico> historico;
 
-
-  ObjetoRastreio(String json){
-
-
+  ObjetoRastreio(String json) {
     Map<String, dynamic> mapa = jsonDecode(json);
     this.codigo = mapa["codigo"];
     this.servico = mapa["servico"];
     var list = mapa["historico"] as List;
     this.historico = List<Historico>();
-   for (Map<String,dynamic> item in list){
-     this.historico.add(Historico(item));
-   }
-
-
-
+    for (Map<String, dynamic> item in list) {
+      this.historico.add(Historico(item));
+    }
   }
 
   @override
   String toString() {
     return 'ObjetoRastreio{codigo: $codigo, servico: $servico, historico: $historico}';
   }
-
-
 }
-
 
 class Historico {
   String data;
@@ -37,7 +28,7 @@ class Historico {
   String detalhes;
   String situacao;
 
-  Historico(Map<String,dynamic> mapa){
+  Historico(Map<String, dynamic> mapa) {
     this.data = mapa["data"];
     this.local = mapa["local"];
     this.detalhes = mapa["detalhes"];
@@ -48,6 +39,4 @@ class Historico {
   String toString() {
     return 'Historico{data: $data, local: $local, detalhes: $detalhes, situacao: $situacao}';
   }
-
-
 }

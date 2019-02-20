@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_correios/model/objeto_rastreio.dart';
 import 'package:flutter_correios/model/resultado_cep.dart';
 import 'package:http/http.dart' as http;
+import 'dart:core';
+
 
 
 /// FlutterCorreios.
 class FlutterCorreios {
-
 
   /// Returna a consulta do cep [cep].
   Future<ResultadoCEP> consultarCEP({@required String cep}) async{
