@@ -1,7 +1,6 @@
-
 import 'dart:convert';
 
-class ResultadoCEP{
+class ResultadoCEP {
   String bairro;
   String cidade;
   String logradouro;
@@ -9,7 +8,7 @@ class ResultadoCEP{
   CidadeInfo cidadeInfo;
   String estado;
 
-  ResultadoCEP(String json){
+  ResultadoCEP(String json) {
     Map<String, dynamic> mapa = jsonDecode(json);
     this.bairro = mapa["bairro"];
     this.cidade = mapa["cidade"];
@@ -18,28 +17,25 @@ class ResultadoCEP{
 
     this.estadoInfo = EstadoInfo(mapa["estado_info"]);
     this.cidadeInfo = CidadeInfo(mapa["cidade_info"]);
-
-
   }
 }
 
-
-class EstadoInfo{
+class EstadoInfo {
   String areaKm2;
   String codigoIBGE;
   String nome;
-  EstadoInfo(Map<String, dynamic> mapa){
+  EstadoInfo(Map<String, dynamic> mapa) {
     this.areaKm2 = mapa["area_km2"];
     this.codigoIBGE = mapa["codigo_ibge"];
     this.nome = mapa["nome"];
   }
 }
 
-class CidadeInfo{
+class CidadeInfo {
   String areaKm2;
   String codigoIBGE;
 
-  CidadeInfo(Map<String, dynamic> mapa){
+  CidadeInfo(Map<String, dynamic> mapa) {
     this.areaKm2 = mapa["area_km2"];
     this.codigoIBGE = mapa["codigo_ibge"];
   }
