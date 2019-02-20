@@ -43,7 +43,7 @@ enviados pelo Correios, também é possível consultar um CEP.
 ```
 
 
-## Como consultar um CEP
+### Como consultar um CEP
 
 ```dart
    
