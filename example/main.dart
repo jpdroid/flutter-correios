@@ -2,8 +2,7 @@ import 'package:flutter_correios/flutter_correios.dart';
 import 'package:flutter_correios/model/objeto_rastreio.dart';
 import 'package:flutter_correios/model/resultado_cep.dart';
 
-void main() async{
-
+void main() async {
   final FlutterCorreios fc = FlutterCorreios();
 
   //consultar cep
@@ -18,20 +17,16 @@ void main() async{
   print("   Cidade Km2: ${resultado?.cidadeInfo?.areaKm2 ?? ''}");
   print("   Cidade IBGE: ${resultado?.cidadeInfo?.codigoIBGE ?? ''}");
 
-
   //rastreiar um objeto
   ObjetoRastreio? objeto = await fc.fazerRastreio(codRastreio: "PT118988786BR");
-  print("código do rastreio: ${objeto?.codigo??''}");
-  print("Serviço: ${objeto?.servico??''}");
-  for(Historico historico in (objeto?.historico?? [])){
-     print("=>");
-     print("   Data:"+(historico?.data ?? ''));
-     print("   Local:"+(historico?.local ?? ''));
-     print("   Situação:"+(historico?.situacao ?? ''));
-     print("   Detalhes:"+(historico?.detalhes ?? ''));
-     print("<=");
+  print("código do rastreio: ${objeto?.codigo ?? ''}");
+  print("Serviço: ${objeto?.servico ?? ''}");
+  for (Historico historico in (objeto?.historico ?? [])) {
+    print("=>");
+    print("   Data:" + (historico.data ?? ''));
+    print("   Local:" + (historico.local ?? ''));
+    print("   Situação:" + (historico.situacao ?? ''));
+    print("   Detalhes:" + (historico.detalhes ?? ''));
+    print("<=");
   }
-
-
-
 }
