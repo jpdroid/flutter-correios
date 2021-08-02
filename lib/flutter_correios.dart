@@ -11,10 +11,11 @@ import 'package:http/http.dart' as http;
 class FlutterCorreios {
 
   /// Returna a consulta do cep [cep].
-  Future<ResultadoCEP> consultarCEP({@required String cep}) async{
-    ResultadoCEP retorno;
+  Future<ResultadoCEP?> consultarCEP({required String cep}) async{
+    ResultadoCEP? retorno;
     try {
-      final response = await http.get("https://api.postmon.com.br/v1/cep/$cep",
+  
+      final response = await http.get(Uri.parse("https://api.postmon.com.br/v1/cep/$cep") ,
           headers: {"Content-Type": "text/json; charset=utf-8"});
       if (response.statusCode==200){
         retorno = ResultadoCEP(response.body);
@@ -26,15 +27,13 @@ class FlutterCorreios {
       print(e);
     }
     return retorno;
-
-
   }
 
   /// Returna o andamento do rastreio.
-  Future<ObjetoRastreio> fazerRastreio({@required String codRastreio}) async{
-    ObjetoRastreio retorno;
+  Future<ObjetoRastreio?> fazerRastreio({required String codRastreio}) async{
+    ObjetoRastreio? retorno;
     try {
-      final response = await http.get("https://api.postmon.com.br/v1/rastreio/ect/$codRastreio",
+      final response = await http.get(Uri.parse("https://api.postmon.com.br/v1/rastreio/ect/$codRastreio"),
           headers: {"Content-Type": "text/json; charset=utf-8"});
       if (response.statusCode==200){
         retorno = ObjetoRastreio(response.body);
@@ -46,6 +45,5 @@ class FlutterCorreios {
       print(e);
     }
     return retorno;
-
   }
 }
