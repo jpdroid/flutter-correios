@@ -11,12 +11,12 @@ class ResultadoCEP {
   ResultadoCEP(String json, bool viaCep) {
     Map<String, dynamic> mapa = jsonDecode(json);
     this.bairro = mapa["bairro"];
-    this.cidade = mapa["cidade"];
+    this.cidade = viaCep ? mapa["localidade"] : mapa["cidade"];
     this.logradouro = mapa["logradouro"];
     this.estado = viaCep ? mapa["uf"] : mapa["estado"];
 
-    this.estadoInfo = EstadoInfo(mapa["estado_info"]);
-    this.cidadeInfo = CidadeInfo(mapa["cidade_info"]);
+    this.estadoInfo = viaCep ? null : EstadoInfo(mapa["estado_info"]);
+    this.cidadeInfo = viaCep ? null : CidadeInfo(mapa["cidade_info"]);
   }
 }
 
