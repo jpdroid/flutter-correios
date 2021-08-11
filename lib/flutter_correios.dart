@@ -9,14 +9,44 @@ class FlutterCorreios {
   /// Returna a consulta do cep [cep].
   Future<ResultadoCEP?> consultarCEP({required String cep}) async {
     ResultadoCEP? retorno;
+
+    retorno = await _viaCep(cep: cep);
+
+    if (retorno == null) {
+      retorno = await _postmon(cep: cep);
+    }
+
+    return retorno;
+  }
+
+  Future<ResultadoCEP?> _postmon({required String cep}) async {
+    ResultadoCEP? retorno;
     try {
       final response = await http.get(
           Uri.parse("https://api.postmon.com.br/v1/cep/$cep"),
           headers: {"Content-Type": "text/json; charset=utf-8"});
       if (response.statusCode == 200) {
-        retorno = ResultadoCEP(response.body);
+        retorno = ResultadoCEP(response.body, false);
       } else {
-        print("Erro na requisição");
+        print("Erro na requisição postmon");
+      }
+      return retorno;
+    } catch (e) {
+      print(e);
+    }
+    return retorno;
+  }
+
+  Future<ResultadoCEP?> _viaCep({required String cep}) async {
+    ResultadoCEP? retorno;
+    try {
+      final response = await http.get(
+          Uri.parse("https://viacep.com.br/ws/$cep/json"),
+          headers: {"Content-Type": "text/json; charset=utf-8"});
+      if (response.statusCode == 200) {
+        retorno = ResultadoCEP(response.body, true);
+      } else {
+        print("Erro na requisição via cep");
       }
       return retorno;
     } catch (e) {

@@ -4,16 +4,16 @@ class ResultadoCEP {
   String? bairro;
   String? cidade;
   String? logradouro;
+  String? estado;
   EstadoInfo? estadoInfo;
   CidadeInfo? cidadeInfo;
-  String? estado;
 
-  ResultadoCEP(String json) {
+  ResultadoCEP(String json, bool viaCep) {
     Map<String, dynamic> mapa = jsonDecode(json);
     this.bairro = mapa["bairro"];
     this.cidade = mapa["cidade"];
     this.logradouro = mapa["logradouro"];
-    this.estado = mapa["estado"];
+    this.estado = viaCep ? mapa["uf"] : mapa["estado"];
 
     this.estadoInfo = EstadoInfo(mapa["estado_info"]);
     this.cidadeInfo = CidadeInfo(mapa["cidade_info"]);
