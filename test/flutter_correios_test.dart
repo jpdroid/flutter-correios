@@ -1,12 +1,11 @@
-import 'package:flutter_correios/model/objeto_rastreio.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_correios/flutter_correios.dart';
 
 void main() {
   test('adds one to input values', () {
-    final FlutterCorreios fc= FlutterCorreios();
-    fc.fazerRastreio(codRastreio: "pt118988786br").then((rast){
+    final FlutterCorreios fc = FlutterCorreios();
+    fc.fazerRastreio(codRastreio: "pt118988786br").then((rast) {
       print(rast.toString());
     });
 //    final calculator = Calculator();

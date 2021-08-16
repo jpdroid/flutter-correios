@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 class ObjetoRastreio {
-  String codigo;
-  String servico;
-  List<Historico> historico;
+  String? codigo;
+  String? servico;
+  List<Historico> historico = [];
 
   ObjetoRastreio(String json) {
     Map<String, dynamic> mapa = jsonDecode(json);
     this.codigo = mapa["codigo"];
     this.servico = mapa["servico"];
     var list = mapa["historico"] as List;
-    this.historico = List<Historico>();
+    this.historico = [];
     for (Map<String, dynamic> item in list) {
       this.historico.add(Historico(item));
     }
@@ -23,10 +23,10 @@ class ObjetoRastreio {
 }
 
 class Historico {
-  String data;
-  String local;
-  String detalhes;
-  String situacao;
+  String? data;
+  String? local;
+  String? detalhes;
+  String? situacao;
 
   Historico(Map<String, dynamic> mapa) {
     this.data = mapa["data"];
