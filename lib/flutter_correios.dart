@@ -7,12 +7,14 @@ import 'package:http/http.dart' as http;
 /// FlutterCorreios.
 class FlutterCorreios {
   /// Returna a consulta do cep [cep].
-  Future<ResultadoCEP?> consultarCEP({required String cep}) async {
+  /// A pesquisa será feita usando a api VIACEP, 
+  ///   caso [postmon] seja true ele também pesquisará usando a api do POSTMON.
+  Future<ResultadoCEP?> consultarCEP({required String cep, bool postmon=false}) async {
     ResultadoCEP? retorno;
 
     retorno = await _viaCep(cep: cep);
 
-    if (retorno == null) {
+    if (retorno == null && postmon==true) {
       retorno = await _postmon(cep: cep);
     }
 

@@ -6,7 +6,7 @@ void main() async {
   final FlutterCorreios fc = FlutterCorreios();
 
   //consultar cep
-  ResultadoCEP? resultado = await fc.consultarCEP(cep: "72010011");
+  ResultadoCEP? resultado = await fc.consultarCEP(cep: "71950904");
   print("bairro: ${resultado?.bairro ?? ''}");
   print("cidade: ${resultado?.cidade ?? ''}");
   print("estado: ${resultado?.estado ?? ''}");
@@ -18,7 +18,7 @@ void main() async {
   print("   Cidade IBGE: ${resultado?.cidadeInfo?.codigoIBGE ?? ''}");
 
   //rastreiar um objeto
-  ObjetoRastreio? objeto = await fc.fazerRastreio(codRastreio: "PT118988786BR");
+  ObjetoRastreio? objeto = await fc.fazerRastreio(codRastreio: "QG390647726BR");
   print("código do rastreio: ${objeto?.codigo ?? ''}");
   print("Serviço: ${objeto?.servico ?? ''}");
   for (Historico historico in (objeto?.historico ?? [])) {
